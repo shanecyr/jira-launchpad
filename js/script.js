@@ -90,7 +90,7 @@ jbGo.addEventListener('click', function() {
     window.location.replace(url);
 });
 jbCancel.addEventListener('click', function() {
-    self.close();
+    window.close();
 });
 jbInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
