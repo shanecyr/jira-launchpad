@@ -1,0 +1,188 @@
+<html>
+<head>
+<style>
+ #jiraBookmarkletModal, #jiraBookmarkletContent, #jiraBookmarkletInputContainer, #jiraBookmarkletControlsContainer, #jiraBookmarkletButtonsContainer, #jiraBookmarkletContent button {
+    box-sizing: border-box !important;
+}
+#jiraBookmarkletModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,1);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#jiraBookmarkletContent {
+    width: 360px;
+    padding: 20px;
+    background-color: rgba(230,230,230,1);
+    outline: 1px solid rgba(190,190,190,1);
+    border-radius: 8px;
+    font-family: system-ui;
+    font-size: 12px;
+}
+#jiraBookmarkletContent #jiraBookmarkletInputContainer {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 41px;
+    background-color: #fdfdfd;
+    padding: 8px 5px 8px 10px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #2c58bd;
+    transition: border-color 0.25s;
+}
+#jiraBookmarkletContent #jiraBookmarkletInputContainer.alternateHost {
+    border-color: #ea8c35;
+}
+#jiraBookmarkletContent #jiraBookmarkletInputContainer input {
+    display: inline-block;
+    margin: 0 !important;
+    width: 240px;
+    padding: 0px;
+    border: 0 !important;
+    box-shadow: none !important;
+    font-family: system-ui;
+    font-size: 14px;
+    line-height: 14px;
+    outline: none !important;
+    background-color: #fdfdfd;
+}
+#jiraBookmarkletInputTypeDisplay {
+    display: inline-block;
+    margin: 0;
+    margin-left: 6px;
+    background-color: #cccccc;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 5px;
+    width: 40px;
+}
+#jiraBookmarkletControlsContainer {
+    position: relative;
+    width: 100%;
+}
+#jiraBookmarkletButtonsContainer {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+}
+#jiraBookmarkletContent button {
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    transition: background-color 0.25s;
+}
+#jiraBookmarkletGoButton {
+    background-color: #2c58bd;
+}
+#jiraBookmarkletGoButton.alternateHost {
+    background-color: #ea8c35;
+}
+#jiraBookmarkletCancelButton {
+    background-color: #888;
+    margin-right: 7px;
+}
+#jiraBookmarkletToggle {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+#jiraBookmarkletContent .toggle-switch {
+    display: inline-block;
+    background-color: #2c58bd;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+#jiraBookmarkletContent .toggle-switch:before, .toggle-switch:after {
+    content: "";
+}
+#jiraBookmarkletContent .toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.1);
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+    max-height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+#jiraBookmarkletModal #jiraBookmarkletContent #jiraBookmarkletToggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+#jiraBookmarkletModal #jiraBookmarkletContent .toggle-checkbox:checked + .toggle-switch {
+    background-color: #ea8c35;
+}
+#jiraBookmarkletModal #jiraBookmarkletContent .toggle-checkbox:checked + .toggle-switch:before {
+    left: 30px;
+}
+#jiraBookmarkletModal #jiraBookmarkletContent .toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+#jiraBookmarkletModal #jiraBookmarkletContent .toggle-label {
+    margin-left: 3px;
+    margin-right: 3px;
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+    line-height: 14px;
+}
+#jiraBookmarkletModal #jiraBookmarkletContent .toggle-label.left{
+    margin-left: 0;
+}
+</style>
+</head>
+<body>
+<div id="jiraBookmarkletModal">
+    <div id="jiraBookmarkletContent">
+        <div id="jiraBookmarkletInputContainer">
+            <input id="jiraBookmarkletInput" type="text" />
+            <div id="jiraBookmarkletInputTypeDisplay">text</div>
+        </div>
+        <div id="jiraBookmarkletControlsContainer">
+            <label id="jiraBookmarkletToggle">
+                <span class="toggle-label left">UIT</span>
+                <input id="jiraBookmarkletInstanceToggle" class="toggle-checkbox" type="checkbox" />
+                <div class="toggle-switch"></div>
+                <span class="toggle-label right">SWS</span>
+            </label>
+            <div id="jiraBookmarkletButtonsContainer">
+                <button id="jiraBookmarkletCancelButton" class="cancel">Cancel</button>
+                <button id="jiraBookmarkletGoButton" class="go">Go</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+</script>
+</body>
+</html>
+
