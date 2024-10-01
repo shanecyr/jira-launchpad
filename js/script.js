@@ -8,7 +8,7 @@ const jbToggle = document.getElementById('jiraBookmarkletInstanceToggle');
 const jbInputCont = document.getElementById('jiraBookmarkletInputContainer');
 const jbInput = document.getElementById('jiraBookmarkletInput');
 const jbGo = document.getElementById('jiraBookmarkletGoButton');
-const jbCancel = document.getElementById('jiraBookmarkletCancelButton');
+//const jbCancel = document.getElementById('jiraBookmarkletCancelButton');
 var searchHost;
 var searchProject;
 var searchInput;
@@ -89,16 +89,16 @@ jbGo.addEventListener('click', function() {
     }
     window.location.replace(url);
 });
-jbCancel.addEventListener('click', function() {
-    window.close();
-});
+//jbCancel.addEventListener('click', function() {
+//    window.close();
+//});
 jbInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         jbGo.click();
-    } else if (event.key === 'Escape') {
-        event.preventDefault();
-        jbCancel.click();
+    //} else if (event.key === 'Escape') {
+    //    event.preventDefault();
+    //    jbCancel.click();
     } else if (event.key === 'Tab') {
         event.preventDefault();
         jbToggle.click();
