@@ -67,11 +67,12 @@ function getSearchType() {
             }
         }
     }
-    if (searchType == 'subkey') {
-        document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchProject.toUpperCase();
+    
+    if (searchType == 'failover') {
+        document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = failoverLabel.toUpperCase();
     } else {
-        if (searchType == 'failover') {
-            document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = failoverLabel.toUpperCase();
+        if (searchType == 'subkey') {
+            document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchProject.toUpperCase();
         } else {
             document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchType;
         }
