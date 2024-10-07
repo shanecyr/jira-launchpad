@@ -9,10 +9,9 @@ const jbInputCont = document.getElementById('jiraBookmarkletInputContainer');
 const jbInput = document.getElementById('jiraBookmarkletInput');
 const jbGo = document.getElementById('jiraBookmarkletGoButton');
 const failoverPath = '/jira/software/projects/DS/boards/6914';
-//const jbCancel = document.getElementById('jiraBookmarkletCancelButton');
 var searchHost;
 var searchProject;
-var searchInput;
+var searchInput = '';
 if (currHost == alternateHost) {
     jbToggle.checked = true;
     jbInputCont.classList.add('alternateHost');
@@ -97,16 +96,10 @@ jbGo.addEventListener('click', function() {
     }
     window.location.replace(url);
 });
-//jbCancel.addEventListener('click', function() {
-//    window.close();
-//});
 jbInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         jbGo.click();
-    //} else if (event.key === 'Escape') {
-    //    event.preventDefault();
-    //    jbCancel.click();
     } else if (event.key === 'Tab') {
         event.preventDefault();
         jbToggle.click();
