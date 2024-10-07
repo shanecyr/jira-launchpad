@@ -9,7 +9,6 @@ const jbInputCont = document.getElementById('jiraBookmarkletInputContainer');
 const jbInput = document.getElementById('jiraBookmarkletInput');
 const jbGo = document.getElementById('jiraBookmarkletGoButton');
 const failoverPath = '/jira/software/projects/DS/boards/6914';
-const failoverLabel = 'board';
 var searchHost;
 var searchProject;
 var searchInput = '';
