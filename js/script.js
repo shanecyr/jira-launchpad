@@ -8,6 +8,7 @@ const jbToggle = document.getElementById('jiraBookmarkletInstanceToggle');
 const jbInputCont = document.getElementById('jiraBookmarkletInputContainer');
 const jbInput = document.getElementById('jiraBookmarkletInput');
 const jbGo = document.getElementById('jiraBookmarkletGoButton');
+const failoverPath = '/jira/software/projects/DS/boards/6914';
 //const jbCancel = document.getElementById('jiraBookmarkletCancelButton');
 var searchHost;
 var searchProject;
@@ -45,19 +46,23 @@ function getSearchType() {
     const isForcedJQL = /^\?.*/;
     const isProbableJQL = /[=(~]/;
     var searchType = 'key';
-    if (isJiraKey.test(searchInput)) {
-        searchType = 'key';
+    if (searchInput == '') {
+        searchType = 'failover';
     } else {
-        if (isSubKey.test(searchInput)) {
-            searchType = 'subkey';
+        if (isJiraKey.test(searchInput)) {
+            searchType = 'key';
         } else {
-            if (isForcedJQL.test(searchInput)) {
-            searchType = 'jql';
+            if (isSubKey.test(searchInput)) {
+                searchType = 'subkey';
             } else {
-                if (isProbableJQL.test(searchInput)) {
-                    searchType = 'jql';
+                if (isForcedJQL.test(searchInput)) {
+                searchType = 'jql';
                 } else {
-                    searchType = 'text';
+                    if (isProbableJQL.test(searchInput)) {
+                        searchType = 'jql';
+                    } else {
+                        searchType = 'text';
+                    }
                 }
             }
         }
@@ -85,6 +90,9 @@ jbGo.addEventListener('click', function() {
         case 'jql':
             searchInput = searchInput.replace(/\?\s+/,'');
             url = 'https://'+searchHost+'/issues/?jql='+searchInput;
+            break;
+        case 'failover':
+            url = 'https://'+searchHost+failoverPath;
             break;
     }
     window.location.replace(url);
