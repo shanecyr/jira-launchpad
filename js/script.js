@@ -9,6 +9,7 @@ const jbInputCont = document.getElementById('jiraBookmarkletInputContainer');
 const jbInput = document.getElementById('jiraBookmarkletInput');
 const jbGo = document.getElementById('jiraBookmarkletGoButton');
 const failoverPath = '/jira/software/projects/DS/boards/6914';
+const failoverLabel = 'board';
 var searchHost;
 var searchProject;
 var searchInput = '';
@@ -69,7 +70,11 @@ function getSearchType() {
     if (searchType == 'subkey') {
         document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchProject.toUpperCase();
     } else {
-        document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchType;
+        if (searchType == 'failover') {
+            document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = failoverLabel.toUpperCase();
+        } else {
+            document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchType;
+        }
     }
     return searchType;
 }
