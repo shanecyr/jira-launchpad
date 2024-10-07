@@ -67,12 +67,9 @@ function getSearchType() {
             }
         }
     }
-    
-    if (searchType == 'failover') {
-        document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = failoverLabel.toUpperCase();
+    if (searchType == 'subkey' || searchType =='failover') {
+        document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchProject.toUpperCase();
     } else {
-        if (searchType == 'subkey') {
-            document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchProject.toUpperCase();
         } else {
             document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchType;
         }
