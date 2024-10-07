@@ -69,9 +69,7 @@ function getSearchType() {
     if (searchType == 'subkey' || searchType =='failover') {
         document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchProject.toUpperCase();
     } else {
-        } else {
-            document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchType;
-        }
+        document.getElementById('jiraBookmarkletInputTypeDisplay').innerText = searchType;
     }
     return searchType;
 }
