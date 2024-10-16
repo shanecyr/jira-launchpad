@@ -1,3 +1,6 @@
+body {
+    background-color: white;
+}
 #jiraBookmarkletModal, #jiraBookmarkletContent, #jiraBookmarkletInputContainer, #jiraBookmarkletControlsContainer, #jiraBookmarkletButtonsContainer, #jiraBookmarkletContent button {
     box-sizing: border-box !important;
 }
@@ -154,4 +157,50 @@
 }
 #jiraBookmarkletModal #jiraBookmarkletContent .toggle-label.left{
     margin-left: 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body #jiraBookmarkletModal {
+        background-color: black;
+    }
+    #jiraBookmarkletContent, #jiraBookmarkletInputTypeDisplay {
+        background-color: rgba(100,100,100,1);
+        color: rgb(230, 230, 230);
+    }
+    #jiraBookmarkletContent #jiraBookmarkletInputContainer {
+        background-color: black;
+        border-color: #173068;
+    }
+    #jiraBookmarkletContent #jiraBookmarkletInputContainer.alternateHost {
+        border-color: #955921;
+    }
+    #jiraBookmarkletContent #jiraBookmarkletInputContainer input {
+        background-color: black;
+        color: rgb(200, 200, 200);
+    }
+    #jiraBookmarkletContent button {
+        color: rgb(200, 200, 200);
+        border: 2px solid rgb(200, 200, 200);
+    }
+    #jiraBookmarkletGoButton {
+        background-color: #173068;
+    }
+    #jiraBookmarkletGoButton.alternateHost {
+        background-color: #955921;
+    }
+    #jiraBookmarkletContent .toggle-switch {
+        background-color: #173068;
+    }
+    #jiraBookmarkletContent .toggle-switch:before {
+        background: linear-gradient(to bottom, rgb(200, 200, 200) 0%, rgb(200, 200, 200) 100%);
+        box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    #jiraBookmarkletModal #jiraBookmarkletContent #jiraBookmarkletToggle:hover .toggle-switch:before {
+        background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+        box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.25);
+    }
+    #jiraBookmarkletModal #jiraBookmarkletContent .toggle-checkbox:checked + .toggle-switch {
+        background-color: #955921;
+    }
 }
